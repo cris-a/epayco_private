@@ -1,10 +1,6 @@
 import { IsNotEmpty, IsNumber, IsString } from 'class-validator'
-import { ObjectId } from 'mongoose'
-export class CreateUserDo {
 
-    // @IsNotEmpty()
-    // @IsString()
-    // readonly id: string
+export class CreateUserDo {
 
     @IsNotEmpty()
     @IsString()

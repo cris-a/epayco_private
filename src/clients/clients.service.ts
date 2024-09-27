@@ -3,6 +3,7 @@ import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
 import { Client } from "src/models/Client.Schema";
 import { CreateUserDo } from "./dto/Client.dto";
+import { RecargaDto } from "./dto/Recarga.dto";
 import generarId from "src/helpers/generarId";
 import generarToken from "src/helpers/generarToken";
 import * as bcrypt from 'bcrypt';
@@ -21,10 +22,24 @@ export class ClientService {
         const saltOrRounds = 10;
         const hash = await bcrypt.hash(password, saltOrRounds);
         const payload = {...createUserDto, password: hash, token: generarToken(), id: generarId()}      
-        const createdClient = new this.userModel(payload)
-        console.log(createdClient);
-        
+        const createdClient = new this.userModel(payload)        
         return await createdClient.save()
+    }
+
+    async addNewBalance(recargaDto: RecargaDto): Promise<Client> {
+        const userExists = await this.userModel.findOne({
+            $and: [
+                {clientDocument: recargaDto.clientDocument},
+                {phone: recargaDto.phone}
+            ]
+        })
+
+        if(!userExists) throw new ConflictException('Este cliente no tiene una cuenta creada o los datos son incorrectos.')    
+
+        userExists.saldo += recargaDto.saldo
+        await userExists.save()
+        return userExists
+
     }
 
 }
