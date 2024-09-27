@@ -1,7 +1,8 @@
 const generarId = () => {
-    const random = Math.random().toString(32).substring(2);
-    const fecha = Date.now().toString(32);
-    return random + fecha;
+    const random = Math.floor(Math.random() * 100000);
+    const fecha = Date.now().toString().slice(-5);
+    const uniqueId = (parseInt(fecha) + random).toString();
+    return uniqueId.slice(-9);
   };
   
 export default generarId;

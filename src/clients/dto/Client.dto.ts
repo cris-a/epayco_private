@@ -1,8 +1,14 @@
 import { IsNotEmpty, IsNumber, IsString } from 'class-validator'
+import { ObjectId } from 'mongoose'
 export class CreateUserDo {
+
+    // @IsNotEmpty()
+    // @IsString()
+    // readonly id: string
+
     @IsNotEmpty()
     @IsString()
-    userId: string
+    clientDocument: string
 
     @IsNotEmpty()
     @IsString()
@@ -19,4 +25,5 @@ export class CreateUserDo {
     @IsNotEmpty()
     @IsString()
     phone: string 
+
 }
