@@ -12,5 +12,4 @@ export class PaymentDto {
     @IsNumber()
     @IsNotEmpty()
     amount: number
-
 }

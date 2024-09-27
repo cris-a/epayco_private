@@ -3,7 +3,7 @@ import { Controller, Get, Post, Param, Body, UsePipes,
     HttpStatus,
     HttpException} from "@nestjs/common";
 import { PaymentsService } from "./payments.service";
-import { PaymentDto } from "src/clients/dto/Payment.dto";
+import { PaymentDto } from "./dto/Payment.dto";
 import { ConfirmDto } from "./dto/confirm.dto";
 import { JWTAuthGuard } from "./jwt-guard";
 

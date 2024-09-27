@@ -2,7 +2,7 @@ import { ConflictException, Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
 import { Client } from "src/models/Client.Schema";
-import { PaymentDto } from "src/clients/dto/Payment.dto";
+import { PaymentDto } from "./dto/Payment.dto";
 import { ConfirmDto } from "./dto/confirm.dto";
 import { MailerService } from '@nestjs-modules/mailer';
 import { randomInt } from "crypto";
