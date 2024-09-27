@@ -30,6 +30,9 @@ export class Client {
     @Prop({default: false})
     confirmed: boolean
 
+    @Prop({})
+    idSession: string
+
     @Prop({default: 0})
     saldo: number
 }
