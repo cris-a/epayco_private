@@ -38,8 +38,7 @@
   <ol>
     <li>Clona este repositorio:
       <pre>
-        <code>git clone https://github.com/tu-usuario/virtual-wallet-api.git
-cd virtual-wallet-api</code>
+        <code>git clone https://github.com/cris-a/epayco_private.git</code>
       </pre>
     </li>
 
