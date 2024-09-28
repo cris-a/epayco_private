@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, IsString } from 'class-validator'
+import { IsNotEmpty, IsString, MinLength } from 'class-validator'
 
 export class CreateUserDo {
 
@@ -16,10 +16,10 @@ export class CreateUserDo {
 
     @IsNotEmpty()
     @IsString()
+    @MinLength(8)
     password: string
 
     @IsNotEmpty()
     @IsString()
     phone: string 
-
 }

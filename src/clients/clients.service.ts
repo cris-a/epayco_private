@@ -1,4 +1,5 @@
 import { ConflictException, Injectable } from "@nestjs/common";
+import { BadRequestException } from '@nestjs/common';
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
 import { Client } from "src/models/Client.Schema";
@@ -13,13 +14,17 @@ import { JwtService } from "@nestjs/jwt";
 export class ClientService {
     constructor(@InjectModel(Client.name) private userModel: Model<Client>, 
     private readonly jwtService: JwtService) {}
-    async createUser(createUserDto: CreateUserDo): Promise<Client> {
+    async createUser(createUserDto: CreateUserDo): Promise<Client> {   
+        const passwordRegex = /^(?=.*[A-Z])(?=(.*[A-Za-z]){4,})(?=(.*\d){4,})(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]).{8,}$/;
+    
+        if (!passwordRegex.test(createUserDto.password)) {
+          throw new BadRequestException('La contraseña debe contener al menos 1 letra mayúscula, 4 letras, 4 números y 1 símbolo.');
+        }     
         const clientExists = await this.userModel.findOne({
             email: createUserDto.email
         })
 
-        if(clientExists) throw new ConflictException('Este cliente ya tiene una cuenta creada.')
-        
+        if(clientExists) throw new ConflictException('Este cliente ya tiene una cuenta creada.')       
         const {password} = createUserDto
         const saltOrRounds = 10;
         const hash = await bcrypt.hash(password, saltOrRounds);
