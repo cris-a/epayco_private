@@ -76,7 +76,7 @@ EMAIL_PASSWORD=your_email_pass</code>
     <li><strong>GET</strong> <code>/api/v1/balance/:documentId/:phone</code> - Consultar el saldo de la billetera</li>
     <li><strong>POST</strong> <code>/api/v1/payments/create</code> - Creación de pagos usando el passowrd y el email</li>
     <li><strong>POST</strong> <code>/api/v1/payments/confirm</code> - Confirmación de pagos mediante un token enviado por email</li>
-    <li><strong>POST</strong> <code>/api/v1/docs</code> - Acceso al area de pruebas</li>
+    <li><strong>GET</strong> <code>/api/v1/docs</code> - Acceso al area de pruebas</li>
   </ul>
 
   <h2>Estructura del proyecto</h2>
