@@ -43,13 +43,13 @@ cd virtual-wallet-api</code>
       </pre>
     </li>
 
-    <li>Instala las dependencias:
-      <pre>
-        <code>npm install</code>
-      </pre>
-    </li>
+  <li>Instala las dependencias:
+    <pre>
+      <code>npm install</code>
+    </pre>
+  </li>
 
-    <li>Configura las variables de entorno en un archivo <strong>.env</strong>:
+  <li>Configura las variables de entorno en un archivo <strong>.env</strong>:
       <pre>
         <code>MONGO_URI=mongodb://localhost:27017/walletDB
 
@@ -57,14 +57,15 @@ JWT_SECRET=your_jwt_secret
 EMAIL_HOST=your_host
 EMAIL_USERNAME=your_email_user
 EMAIL_PASSWORD=your_email_pass</code>
+
 </pre>
 </li>
 
-    <li>Inicia la aplicación:
-      <pre>
+  <li>Inicia la aplicación:
+    <pre>
         <code>npm run start:dev</code>
-      </pre>
-    </li>
+    </pre>
+  </li>
 
   </ol>
 
