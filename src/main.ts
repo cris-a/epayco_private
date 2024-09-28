@@ -1,11 +1,18 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import { ConfigService } from '@nestjs/config';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
+  const configService = app.get(ConfigService);
+  const corsOrigin = configService.get<string>('CORS_ORIGIN');
   app.setGlobalPrefix('api/v1')
+
+  app.enableCors({
+    origin: corsOrigin,
+    methods: 'GET,POST'
+  })
 
   const config = new DocumentBuilder()
   .setTitle('Área Privada')

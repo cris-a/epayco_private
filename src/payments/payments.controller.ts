@@ -17,7 +17,7 @@ export class PaymentsController {
     async makePayment(@Body() paymentDto: PaymentDto ) {
         const idSession = await this.paymentService.genTokenEmail(paymentDto)
         return {
-            messge: 'Se ha envíado un código a tu correo para confirmar tu compra',
+            message: 'Se ha envíado un código a tu correo para confirmar tu compra',
             idSession: idSession
         }
     }
@@ -26,7 +26,7 @@ export class PaymentsController {
     @UseGuards(JWTAuthGuard)
     @HttpCode(200)
     async confirmPayment(@Body() confirmDto: ConfirmDto, @Request() req) {
-        try {
+        try {        
         const {amount, id, token} = req?.user         
         await this.paymentService.confirmPayment(confirmDto, amount, id, token)
         return {

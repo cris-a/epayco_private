@@ -51,12 +51,15 @@ cd virtual-wallet-api</code>
 
   <li>Configura las variables de entorno en un archivo <strong>.env</strong>:
       <pre>
-        <code>MONGO_URI=mongodb://localhost:27017/walletDB
-
-JWT_SECRET=your_jwt_secret
-EMAIL_HOST=your_host
-EMAIL_USERNAME=your_email_user
-EMAIL_PASSWORD=your_email_pass</code>
+        <code>
+      MONGO_URI=mongodb://localhost:27017/walletDB
+      JWT_SECRET=your_jwt_secret
+      EMAIL_HOST=your_host
+      EMAIL_USERNAME=your_email_user
+      EMAIL_PASSWORD=your_email_pass
+      PORT=your_port
+      CORS_ORIGIN=your_url
+  </code>
 
 </pre>
 </li>
@@ -76,7 +79,7 @@ EMAIL_PASSWORD=your_email_pass</code>
     <li><strong>GET</strong> <code>/api/v1/balance/:documentId/:phone</code> - Consultar el saldo de la billetera</li>
     <li><strong>POST</strong> <code>/api/v1/payments/create</code> - Creación de pagos usando el passowrd y el email</li>
     <li><strong>POST</strong> <code>/api/v1/payments/confirm</code> - Confirmación de pagos mediante un token enviado por email</li>
-    <li><strong>GET</strong> <code>/api/v1/docs</code> - Acceso al area de pruebas</li>
+    <li><strong>GET</strong> <code>/docs</code> - Acceso al area de pruebas</li>
   </ul>
 
   <h2>Estructura del proyecto</h2>

@@ -14,9 +14,7 @@ export class PaymentsService {
     constructor(@InjectModel(Client.name) private userModel: Model<Client>, 
     private readonly mailService: MailerService,
     private readonly jwtService: JwtService) {}
-
-    
-    
+   
     async genTokenEmail(paymentDto:PaymentDto): Promise<string> {
         const {email, password, amount} = paymentDto
 
