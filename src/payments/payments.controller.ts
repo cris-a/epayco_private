@@ -1,12 +1,13 @@
-import { Controller, Get, Post, Param, Body, UsePipes,
-    ValidationPipe, HttpCode, UseGuards, Request, 
-    HttpStatus,
-    HttpException} from "@nestjs/common";
+import { Controller, Post, Body, HttpCode, 
+    UseGuards, Request, HttpStatus, HttpException} from "@nestjs/common";
 import { PaymentsService } from "./payments.service";
 import { PaymentDto } from "./dto/Payment.dto";
 import { ConfirmDto } from "./dto/confirm.dto";
 import { JWTAuthGuard } from "./jwt-guard";
+import { ApiTags, ApiBearerAuth } from "@nestjs/swagger";
 
+@ApiTags('Payments')
+@ApiBearerAuth()
 @Controller('payments')
 export class PaymentsController {
     constructor(private paymentService: PaymentsService) {}

@@ -3,7 +3,9 @@ ValidationPipe, HttpCode, HttpStatus,
 HttpException} from "@nestjs/common";
 import { ClientService } from "./clients.service";
 import { CreateUserDo } from "./dto/Client.dto";
+import { ApiTags } from "@nestjs/swagger";
 
+@ApiTags('Client')
 @Controller('clients')
 export class ClientController {
     constructor(private clienteService: ClientService) {}
